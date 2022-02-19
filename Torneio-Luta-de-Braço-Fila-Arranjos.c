@@ -14,7 +14,7 @@ a sua força inicial (Pi). Se dois competidores possuem uma força igual, então
 com menor índice vai ganhar. */
  
 // ======================== FILA POR ARRANJOS =====================================
-
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -61,7 +61,7 @@ int Tamanho_TFila(TFila *pFilaLutadores)
     else
         return (MAX + pFilaLutadores->Ultimo - pFilaLutadores->Primeiro);
 }
-
+ 
 //Função que enfileira o item na fila
 int Enfileira_TFila(TFila *pFilaLutadores, TItem x)
 {
@@ -73,7 +73,7 @@ int Enfileira_TFila(TFila *pFilaLutadores, TItem x)
  
     return 1;
 }
-
+ 
 //Função que desenfileira o item da fila
 int Desenfileira_TFila(TFila *pFilaLutadores, TItem *pX)
 {
@@ -103,7 +103,7 @@ int main()
     for (i = 1; i <= Ncompetidores; i++) //laço para ler as informações dos n competidores
     {
         Info_Lutadores.ID = i;
-
+ 
         scanf("%d", &Info_Lutadores.Forca_Inicial);
  
         Info_Lutadores.Forca = Info_Lutadores.Forca_Inicial;
@@ -119,7 +119,7 @@ int main()
         if (PrimeiroCompetidor.Forca > SegundoCompetidor.Forca) //verificando quem é mais forte
         {
             PrimeiroCompetidor.Forca = (PrimeiroCompetidor.Forca - SegundoCompetidor.Forca) + k; //dando a nova força
-
+ 
             if (PrimeiroCompetidor.Forca > PrimeiroCompetidor.Forca_Inicial) //se a nova força for maior que a incial
                 PrimeiroCompetidor.Forca = PrimeiroCompetidor.Forca_Inicial; // a força volta a ser a inicial
             Enfileira_TFila(&FilaLutadores, PrimeiroCompetidor);
@@ -129,7 +129,7 @@ int main()
             if (PrimeiroCompetidor.Forca < SegundoCompetidor.Forca)
             {
                 SegundoCompetidor.Forca = (SegundoCompetidor.Forca - PrimeiroCompetidor.Forca) + k;
-
+ 
                 if (SegundoCompetidor.Forca > SegundoCompetidor.Forca_Inicial)
                     SegundoCompetidor.Forca = SegundoCompetidor.Forca_Inicial;
                 Enfileira_TFila(&FilaLutadores, SegundoCompetidor);
@@ -139,7 +139,7 @@ int main()
                 if (PrimeiroCompetidor.Forca == SegundoCompetidor.Forca) // se a força for igual, vence o que possui o menor indice
                 {
                     PrimeiroCompetidor.Forca = (PrimeiroCompetidor.Forca - SegundoCompetidor.Forca) + k;
-
+ 
                     if (PrimeiroCompetidor.Forca > PrimeiroCompetidor.Forca_Inicial)
                         PrimeiroCompetidor.Forca = PrimeiroCompetidor.Forca_Inicial;
                     Enfileira_TFila(&FilaLutadores, PrimeiroCompetidor);
